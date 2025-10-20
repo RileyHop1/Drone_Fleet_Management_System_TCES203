@@ -21,8 +21,5 @@ void addDrone(void){
     printf("Model (<=%d chars): ", MAX_NAME_LEN);
     if (scanf(" %50[^\n]", myModels[count]) != 1) { puts("Invalid name."); return; }
 
-    printf("Battery (0-100): ");
-    if (scanf("%f", &bat) != 1 || bat < 0.0f || bat > 100.0f) { puts("Invalid battery."); return; }
 
-    printf("Position x y: ");
-    if (scanf("%f %f", &x, &y) != 2) { puts("Invalid position."); return; }
+
