@@ -8,10 +8,10 @@
 int myIds[MAX_FLEET_SIZE];
 int myNumberOfDrones = 0;
 
-char myModels[][MAX_NAME_LEN];
+char myModels[MAX_FLEET_SIZE][MAX_NAME_LEN];
 
-float myBatteries[];
-float myPositions[][2];
+float myBatteries[MAX_FLEET_SIZE];
+float myPositions[MAX_FLEET_SIZE][2];
 
 /**Checks if an ID is valid for input*/
 int checkId(const int theID) {
@@ -44,7 +44,6 @@ int checkBattery(const float theBattery) {
 void addDrone(void) {
     
     int tempID = 0;
-    char name[MAX_NAME_LEN];
     float batteryLevel = 0.0f;
 
     float pos[2];
@@ -61,8 +60,8 @@ void addDrone(void) {
     while(1) {
         printf("Please input a name for your drone in the formate(Name): ");
         
-        if (scanf("%s", name) == 1 
-            && checkName(name) ) break;
+        if (scanf("%s", myModels[myNumberOfDrones]) == 1 
+            && checkName(myModels[myNumberOfDrones]) ) break;
 
         printf("ERROR: not a valid name please try again\n");
         
@@ -93,6 +92,10 @@ void addDrone(void) {
         printf("ERROR: incorrect input, please try again\n");
         
     }
+    myIds[myNumberOfDrones] = tempID;
+    myBatteries[myNumberOfDrones] = batteryLevel;
+    myPositions[myNumberOfDrones][0] = pos[0];
+    myPositions[myNumberOfDrones][1] = pos[1];
     myNumberOfDrones++;
 
 
@@ -100,6 +103,9 @@ void addDrone(void) {
 /**This function displays all drones. */
 void displayDrone() {
 
+    for (int i = 0; i < myNumberOfDrones; i++) {
+        
+    }
 }
 int main(void) {
 
