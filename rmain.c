@@ -1,3 +1,12 @@
+/*
+Names: Riley Hopper,
+Chosen variations: 
+    1A - Basic Console Menu
+    2A - Enhanced Search
+
+*/
+
+
 #include <stdio.h>
 
 #define MAX_NAME_LEN 50
@@ -55,7 +64,7 @@ void searchByModel(void) {
             break; 
         }
 
-        printf("Error: incorrect input");
+        printf("Error: incorrect input\n");
         clearBuffer();
     }
 
@@ -96,15 +105,20 @@ void searchById(void) {
             break; 
         }
 
-        printf("Error: incorrect input");
+        printf("Error: incorrect input\n");
         clearBuffer();
     }
 
     for (int i = 0; i < myNumberOfDrones; i++) {
         if (myIds[i] == id) {
             printf("Drone found:\n");
-            printf("ID\t| Model\t| Battery\t| X-coord\t| Y-coord\t\n");
-            printf("%-5d | %-15s | %-7.2f | %-7.2f | %-7.2f\n",
+            printf("%-20s | %-50s | %-10s | %-20s | %-20s \n",
+                "ID",
+                "Model",
+                "Battery",
+                "X",
+                "Y");
+            printf("%-20d | %-50s | %-10.2f | %-20.2f | %-20.2f\n",
                 myIds[i],
                 myModels[i],
                 myBatteries[i],
@@ -130,7 +144,7 @@ void searchForDrone(void) {
             break; 
         }
 
-        printf("Error: incorrect input");
+        printf("Error: incorrect input\n");
         clearBuffer();
     }
 
@@ -142,7 +156,7 @@ void searchForDrone(void) {
             searchByModel();
             break;
         default:
-            printf("Error: program failiure");
+            printf("Error: program failiure\n");
             break;
     }
 }
@@ -190,7 +204,7 @@ int checkBattery(const float theBattery) {
 void addDrone(void) {
 
     if (myNumberOfDrones >= MAX_FLEET_SIZE) {
-        printf("Fleet is full. Cannot add more drones");
+        printf("Fleet is full. Cannot add more drones\n");
         return;
     }
     
@@ -271,9 +285,14 @@ void displayDrones() {
         return;
     }
 
-    printf("ID\t| Model\t| Battery\t| X-coord\t| Y-coord\t\n");
+    printf("%-20s | %-50s | %-10s | %-20s | %-20s \n",
+            "ID",
+            "Model",
+            "Battery",
+            "X",
+            "Y");
     for (int i = 0; i < myNumberOfDrones; i++) {
-        printf("%-5d | %-15s | %-7.2f | %-7.2f | %-7.2f\n",
+        printf("%-20d | %-50s | %-10.2f | %-20.2f | %-20.2f\n",
             myIds[i],
             myModels[i],
             myBatteries[i],
@@ -289,7 +308,7 @@ int main(void) {
     while (running) {
         int command = 0;
         printf("Please enter the associated number with your command.\n");
-        printf("1. Add a drone.\n2. Display all drones.\n3.Search For Drone\n4.Show average battery\n5. Exit\n");
+        printf("1. Add a drone.\n2. Display all drones.\n3. Search For Drone.\n4. Show average battery.\n5. Exit.\n");
 
         if (scanf("%d", &command) != 1) {
             clearBuffer();
@@ -319,7 +338,7 @@ int main(void) {
                 running = 0;
                 continue;
             default:
-                printf("Error: Program failure"); 
+                printf("Error: Program failure\n"); 
                 break;
         }
     }
