@@ -27,6 +27,7 @@ int checkId(const int theID) {
     
     return 1;
 }
+
 /**Checks if a name is valid. */
 int checkName(const char theName[]) {
     if (sizeof(theName) > sizeof(char) * MAX_NAME_LEN) return 0;
@@ -35,11 +36,13 @@ int checkName(const char theName[]) {
 
 
 }
+
 /**Checks if the input is a valid battery level. */
 int checkBattery(const float theBattery) {
     if (theBattery > MAX_BATTERY || theBattery < MINIMUM_BATTERY) return 0;
     return 1;
 }
+
 /**This adds a drone to the fleet.*/
 void addDrone(void) {
     
@@ -92,6 +95,7 @@ void addDrone(void) {
         printf("ERROR: incorrect input, please try again\n");
         
     }
+
     myIds[myNumberOfDrones] = tempID;
     myBatteries[myNumberOfDrones] = batteryLevel;
     myPositions[myNumberOfDrones][0] = pos[0];
@@ -100,6 +104,7 @@ void addDrone(void) {
 
 
 }
+
 /**This function displays all drones. */
 void displayDrone() {
 
