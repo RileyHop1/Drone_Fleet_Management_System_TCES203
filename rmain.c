@@ -15,11 +15,11 @@ float myPositions[MAX_FLEET_SIZE][2];
 
 /**This clears the input buffer, so there isn't left over characters in the input stream.*/
 void clearBuffer(void) {
-	char c;
+	int c;
 	while((c = getchar()) != '\n' && c != EOF);
 }
 /**Checks if two strings are equal. */
-int isEqual(const char[] string1, const char[] string2) {
+int isEqual(const char string1[], const char string2[]) {
     int index = 0;
 
     while(string1[index] != '\0' && string2[index] != '\0') { 
@@ -161,7 +161,7 @@ void calculateAverageBattery(void) {
         total += myBatteries[i];
     }
 
-    printf("Average battery of fleet: %.2f%%\n", total/myNumberOfDrones);
+    printf("Average battery of fleet: %.2f%%\n", total/(float)myNumberOfDrones);
 
 }
 
