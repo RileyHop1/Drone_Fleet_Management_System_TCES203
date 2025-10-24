@@ -63,12 +63,12 @@ void searchByModel(void) {
         if(isEqual(model, myModels[i])) {
             printf("Drone found:\n");
             printf("ID\t| Model\t| Battery\t| X-coord\t| Y-coord\t\n");
-            printf("%d\t| %s\t| %.2f\t| %.2f\t| %.2f\t\n", 
-            myIds[i],
-            myModels[i],
-            myBatteries[i],
-            myPositions[i][0],
-            myPositions[i][1]);
+            printf("%-5d | %-15s | %-7.2f | %-7.2f | %-7.2f\n",
+                myIds[i],
+                myModels[i],
+                myBatteries[i],
+                myPositions[i][0],
+                myPositions[i][1]);
             return;
         }
     }
@@ -104,12 +104,12 @@ void searchById(void) {
         if (myIds[i] == id) {
             printf("Drone found:\n");
             printf("ID\t| Model\t| Battery\t| X-coord\t| Y-coord\t\n");
-            printf("%d\t| %s\t| %.2f\t| %.2f\t| %.2f\t\n", 
-            myIds[i],
-            myModels[i],
-            myBatteries[i],
-            myPositions[i][0],
-            myPositions[i][1]);
+            printf("%-5d | %-15s | %-7.2f | %-7.2f | %-7.2f\n",
+                myIds[i],
+                myModels[i],
+                myBatteries[i],
+                myPositions[i][0],
+                myPositions[i][1]);
             return;
         }
     }
@@ -273,12 +273,13 @@ void displayDrones() {
 
     printf("ID\t| Model\t| Battery\t| X-coord\t| Y-coord\t\n");
     for (int i = 0; i < myNumberOfDrones; i++) {
-        printf("%d\t| %s\t| %.2f\t| %.2f\t| %.2f\t\n", 
+        printf("%-5d | %-15s | %-7.2f | %-7.2f | %-7.2f\n",
             myIds[i],
             myModels[i],
             myBatteries[i],
             myPositions[i][0],
             myPositions[i][1]);
+
     }
 }
 int main(void) {
