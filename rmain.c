@@ -1,5 +1,5 @@
 /*
-Names: Riley Hopper,
+Names: Riley Hopper, Jinal Thummar
 Chosen variations: 
     1A - Basic Console Menu
     2A - Enhanced Search
@@ -71,8 +71,13 @@ void searchByModel(void) {
     for(int i = 0; i < myNumberOfDrones; i++) {
         if(isEqual(model, myModels[i])) {
             printf("Drone found:\n");
-            printf("ID\t| Model\t| Battery\t| X-coord\t| Y-coord\t\n");
-            printf("%-5d | %-15s | %-7.2f | %-7.2f | %-7.2f\n",
+            printf("%-20s | %-50s | %-10s | %-20s | %-20s \n",
+                "ID",
+                "Model",
+                "Battery",
+                "X",
+                "Y");
+            printf("%-20d | %-50s | %-10.2f | %-20.2f | %-20.2f\n",
                 myIds[i],
                 myModels[i],
                 myBatteries[i],
